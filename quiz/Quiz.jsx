@@ -53,6 +53,16 @@ function Quiz() {
             // console.log(k)
         }
     }
+
+    function getResult(arr1, arr2) {
+        let result = 0
+        for(let i = 0; i < arr1.length; i++){
+            if(arr1[i] ===  arr2[i]){
+                result ++
+            }
+        }
+        return result
+    }
     questionList()
     const handlechange = (e, index) => {
         // console.log(index, 'indexxx')
@@ -64,13 +74,13 @@ function Quiz() {
             let newArr = [...Questions]
             newArr[index].isAnswered = true; // replace e.target.value with whatever you want to change it to
             newArr[index].isNext = false;
-            // const answer = e.currentTarget.value
+            setQuestios(newArr);
             const bkey = e.target.attributes.getNamedItem('data-bbkey').value;
             let userlist = [...userans]
             userlist.push(parseInt(bkey))
             setuserns(userlist)
             console.log(userlist, AnswerKey)
-            setQuestios(newArr);
+            console.log(getResult(userlist, AnswerKey), 'your result is')
             return
         }
         const bkey = e.target.attributes.getNamedItem('data-bbkey').value;
