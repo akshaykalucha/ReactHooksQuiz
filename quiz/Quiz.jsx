@@ -44,7 +44,8 @@ function Quiz() {
         console.log('hi')
     }, [])
 
-    // const AnswerKey = [1, 1, 3, 2]
+    const AnswerKey = [1, 1, 3, 2]
+    const [userans, setuserns] = useState([])
     let i
     function questionList() {
         for(i=0; i<Questions.length; i++){
@@ -54,27 +55,37 @@ function Quiz() {
     }
     questionList()
     const handlechange = (e, index) => {
-        console.log(index, 'indexxx')
-        console.log(Questions.length, 'lemgthh')
+        // console.log(index, 'indexxx')
+        // console.log(Questions.length, 'lemgthh')
         if (Questions.length === index+1){
-            console.log('yesssss')
+            // console.log('yesssss')
             setAllAnswered(true)
-            console.group(Allanswered)
+            // console.group(Allanswered)
             let newArr = [...Questions]
             newArr[index].isAnswered = true; // replace e.target.value with whatever you want to change it to
             newArr[index].isNext = false;
+            // const answer = e.currentTarget.value
+            const bkey = e.target.attributes.getNamedItem('data-bbkey').value;
+            let userlist = [...userans]
+            userlist.push(parseInt(bkey))
+            setuserns(userlist)
+            console.log(userlist, AnswerKey)
             setQuestios(newArr);
             return
         }
         const bkey = e.target.attributes.getNamedItem('data-bbkey').value;
+        // const answer = e.currentTarget.value
         let newArr = [...Questions]; // copying the old datas array
         newArr[index].isAnswered = true; // replace e.target.value with whatever you want to change it to
         newArr[index].isNext = false;
         newArr[index+1].isNext = true
-
+        let userlist = [...userans]
+        userlist.push(parseInt(bkey))
+        setuserns(userlist)
+        console.log(userlist)
         setQuestios(newArr);
         if(bkey === e.target.value){
-            console.log('hihii')
+            // console.log('hihii')
             // setQuestios(prevState => ({ ...prevState, prevState.: true}));
             // setQuestios(Questions.map(item => item.key === index+1 ? {...item, isAnswered : "true"} : item ))
             // const k =Questions.find(x => x.key === index+1)
@@ -82,9 +93,9 @@ function Quiz() {
             // k.isAnswered = "true"
             // setQuestios(Questions.find(index).isAnswered= "true")
         }else{
-            console.log(e.currentTarget.innerText, bkey, e.currentTarget.value)
+            // console.log(e.currentTarget.innerText, bkey, e.currentTarget.value)
         }
-        console.log(index)
+        // console.log(index)
     }
     if(Allanswered === false){
         return(
