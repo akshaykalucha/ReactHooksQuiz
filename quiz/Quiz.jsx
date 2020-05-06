@@ -38,6 +38,8 @@ function Quiz() {
         },
     ])
 
+    const [Allanswered, setAllAnswered] = useState(false)
+
     useEffect(() => {
         console.log('hi')
     }, [])
@@ -56,19 +58,20 @@ function Quiz() {
         console.log(Questions.length, 'lemgthh')
         if (Questions.length === index+1){
             console.log('yesssss')
+            setAllAnswered(true)
+            console.group(Allanswered)
             let newArr = [...Questions]
             newArr[index].isAnswered = true; // replace e.target.value with whatever you want to change it to
             newArr[index].isNext = false;
             setQuestios(newArr);
             return
         }
-
-        
         const bkey = e.target.attributes.getNamedItem('data-bbkey').value;
         let newArr = [...Questions]; // copying the old datas array
         newArr[index].isAnswered = true; // replace e.target.value with whatever you want to change it to
         newArr[index].isNext = false;
         newArr[index+1].isNext = true
+
         setQuestios(newArr);
         if(bkey === e.target.value){
             console.log('hihii')
@@ -83,8 +86,9 @@ function Quiz() {
         }
         console.log(index)
     }
-    return (
-        <h1>{Questions.map((Question, index) => Question.isAnswered === false && Question.isNext === true ? (
+    if(Allanswered === false){
+        return(
+            Questions.map((Question, index) => Question.isAnswered === false && Question.isNext === true ? <div>
             <div key={Math.random() *10}>{Question.Question}
             <div>
              {Question.Options.map(option => 
@@ -92,9 +96,14 @@ function Quiz() {
             )}
             </div>
             </div>
-        ) : <div></div>
-        )}</h1>
-    )
+        </div> : <div></div>
+        )
+        )
+    } else{
+        return(
+            <div>Finished quiz</div>
+        )
+    }
 }
 
 export default Quiz
