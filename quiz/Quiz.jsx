@@ -52,13 +52,23 @@ function Quiz() {
     }
     questionList()
     const handlechange = (e, index) => {
-        console.log(index)
+        console.log(index, 'indexxx')
+        console.log(Questions.length, 'lemgthh')
+        if (Questions.length === index+1){
+            console.log('yesssss')
+            let newArr = [...Questions]
+            newArr[index].isAnswered = true; // replace e.target.value with whatever you want to change it to
+            newArr[index].isNext = false;
+            setQuestios(newArr);
+            return
+        }
+
+        
         const bkey = e.target.attributes.getNamedItem('data-bbkey').value;
         let newArr = [...Questions]; // copying the old datas array
         newArr[index].isAnswered = true; // replace e.target.value with whatever you want to change it to
         newArr[index].isNext = false;
         newArr[index+1].isNext = true
-    
         setQuestios(newArr);
         if(bkey === e.target.value){
             console.log('hihii')
