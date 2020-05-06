@@ -9,28 +9,32 @@ function Quiz() {
             Options: [ {op1: "New delhi", b:1 }, {op2: "Mumbai", b:2}, {op3: "Kolkata", b:3}],
             Akey: 1,
             key: 1,
-            isAnswered: false
+            isAnswered: false,
+            isNext: true
         },
         {
             Question: "Who is prime minister",
             Options: [ {op1: "Modi", b:1},  {op2: "Gandhi", b:2},  {op3: "Nehru", b:3}],
             Akey: 1,
             key: 2,
-            isAnswered: false
+            isAnswered: false,
+            isNext: false
         },
         {
             Question: "What is our national bird",
             Options: [ {op1: "Pegion", b:1}, { op2: "Parrot", b:2}, { op3: "Peacock", b:3}],
             Akey: 3,
             key: 3,
-            isAnswered: false
+            isAnswered: false,
+            isNext: false
         },
         {
             Question: "Who is iron man of india",
             Options: [ {op1: "Bose", b:1}, {op2: "Sardar patel", b:2}, {op3: "Gandhi", b:3}],
             Akey: 2,
             key: 4,
-            isAnswered: false
+            isAnswered: false,
+            isNext: false
         },
     ])
 
@@ -52,6 +56,8 @@ function Quiz() {
         const bkey = e.target.attributes.getNamedItem('data-bbkey').value;
         let newArr = [...Questions]; // copying the old datas array
         newArr[index].isAnswered = true; // replace e.target.value with whatever you want to change it to
+        newArr[index].isNext = false;
+        newArr[index+1].isNext = true
     
         setQuestios(newArr);
         if(bkey === e.target.value){
@@ -68,7 +74,7 @@ function Quiz() {
         console.log(index)
     }
     return (
-        <h1>{Questions.map((Question, index) => Question.isAnswered === false ? (
+        <h1>{Questions.map((Question, index) => Question.isAnswered === false && Question.isNext === true ? (
             <div key={Math.random() *10}>{Question.Question}
             <div>
              {Question.Options.map(option => 
