@@ -72,12 +72,24 @@ function Quiz() {
         if (Questions.length === index+1){
             // console.log('yesssss')
             setAllAnswered(true)
+            console.log(e.currentTarget.innerText)
             // console.group(Allanswered)
             let newArr = [...Questions]
             newArr[index].isAnswered = true; // replace e.target.value with whatever you want to change it to
             newArr[index].isNext = false;
             setQuestios(newArr);
-            const bkey = e.target.attributes.getNamedItem('data-bbkey').value;
+            let optiontext = e.currentTarget.innerText
+            let bkey
+            Questions.map(Question => Question.Options.map(function(option, index){
+                if(option.op1===optiontext){
+                    bkey = option.b
+                }else if(option.op2 === optiontext){
+                    bkey = option.b
+                }else if(option.op3 === optiontext){
+                    bkey = option.b
+                }
+                return bkey
+            }))
             let userlist = [...userans]
             userlist.push(parseInt(bkey))
             setuserns(userlist)
@@ -85,11 +97,22 @@ function Quiz() {
             console.log(getResult(userlist, AnswerKey), 'your result is')
             return
         }
-        const bkey = e.target.attributes.getNamedItem('data-bbkey').value;
+        let bkey
         // const answer = e.currentTarget.value
         let newArr = [...Questions]; // copying the old datas array
         newArr[index].isAnswered = true; // replace e.target.value with whatever you want to change it to
         newArr[index].isNext = false;
+        let optiontext = e.currentTarget.innerText
+        Questions.map(Question => Question.Options.map(function(option, index){
+            if(option.op1===optiontext){
+                bkey = option.b
+            }else if(option.op2 === optiontext){
+                bkey = option.b
+            }else if(option.op3 === optiontext){
+                bkey = option.b
+            }
+            return bkey
+        }))
         newArr[index+1].isNext = true
         let userlist = [...userans]
         userlist.push(parseInt(bkey))
@@ -115,7 +138,7 @@ function Quiz() {
             <div key={Math.random() *10}>{Question.Question}
             <div>
              {Question.Options.map(option => 
-                <button data-bbkey={option.b} key={Math.random() *10} value={Question.Akey} onClick={e => handlechange(e, index)}>{option.op1}{option.op2}{option.op3}</button>
+                <button data-bbkey={option.b} key={Math.random() *10} onClick={e => handlechange(e, index)}>{option.op1}{option.op2}{option.op3}</button>
             )}
             </div>
             </div>
