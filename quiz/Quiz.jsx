@@ -39,6 +39,7 @@ function Quiz() {
     ])
 
     const [Allanswered, setAllAnswered] = useState(false)
+    const [result, setResult] = useState(0)
 
     useEffect(() => {
         console.log('hi')
@@ -53,15 +54,16 @@ function Quiz() {
             // console.log(k)
         }
     }
-
+    let Nresult = 0
     function getResult(arr1, arr2) {
-        let result = 0
+        
         for(let i = 0; i < arr1.length; i++){
             if(arr1[i] ===  arr2[i]){
-                result ++
+                Nresult ++
             }
         }
-        return result
+        setResult(Nresult)
+        return Nresult
     }
     questionList()
     const handlechange = (e, index) => {
@@ -122,7 +124,10 @@ function Quiz() {
         )
     } else{
         return(
-            <div>Finished quiz</div>
+            <div>
+                <h1>Quiz Finished</h1>
+                <h2>Your result is: {result}</h2>
+            </div>
         )
     }
 }
