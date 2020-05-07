@@ -119,18 +119,18 @@ function Quiz() {
     }
 
 
-    
+
     if(Allanswered === false){
         return(
             Questions.map((Question, index) => Question.isAnswered === false && Question.isNext === true ? <div>
             <div key={Math.random() *10}>{Question.Question}
             <div>
              {Question.Options.map(option => 
-                <button data-bbkey={option.b} key={Math.random() *10} onClick={e => handlechange(e, index)}>{option.op1}{option.op2}{option.op3}</button>
+                <button data-bbkey={option.b} key={Math.random()*10} onClick={e => handlechange(e, index)}>{option.op1}{option.op2}{option.op3}</button>
             )}
             </div>
             </div>
-        </div> : <div></div>
+        </div> : <div ></div>
         )
         )
     } else{
