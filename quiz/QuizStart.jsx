@@ -16,7 +16,7 @@ export class QuizStart extends Component {
     render() {
         return (
             <Router>
-                <div>
+                <div> 
                     <Link to='/quiz' color="white" clssName="is-rounded">
                         <span>My Quiz</span>
                     </Link>
@@ -30,3 +30,6 @@ export class QuizStart extends Component {
 }
 
 export default QuizStart
+
+
+//Need to get packages
