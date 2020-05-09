@@ -9,15 +9,22 @@ export class QuizStart extends Component {
       super(props)
     
       this.state = {
-         
+        Num: null
       }
 
       this.globalvar = {
-          Num: 1
+          Val: this.state.Num
       }
     }
 
     componentDidMount(){
+        console.log(this.globalvar)
+    }
+
+    componentDidUpdate(){
+        this.globalvar.Val = this.state.Num
+        console.log("--------------")
+        console.log(this.state)
         console.log(this.globalvar)
     }
     
@@ -25,6 +32,8 @@ export class QuizStart extends Component {
     render() {
         return (
         <div>
+            <label>Please enter number of questions you want</label><br/>
+            <input type="text" placeholder="..." name="Num" value={this.state.Num} onChange={e => this.setState({[e.target.name]: e.target.value})} /><br/>
             <button className="otpbutton">
                 <Link to={{ pathname: "/quiz", state: this.globalvar }}>Create Quiz</Link>
             </button>    
