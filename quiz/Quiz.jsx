@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 // import styles from './Quiz.modules.css'
 
-function Quiz() {
+function Quiz(props) {
 
     const [Questions, setQuestios] = useState([
         {
@@ -43,6 +43,7 @@ function Quiz() {
     const [userans, setuserns] = useState([])
 
     useEffect(() => {
+        console.log(props.location.state)
         console.log('hi')
     }, [])
 
