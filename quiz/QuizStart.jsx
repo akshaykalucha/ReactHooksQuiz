@@ -4,19 +4,27 @@ import { Link } from 'react-router-dom'
 
 
 export class QuizStart extends Component {
-
-    constructor(props) {
-      super(props)
     
-      this.state = {
-        Num: '',
-        Genre: "GK"
-      }
+// constructor(props) {
+//     super(props)
 
-      this.globalvar = {
-          Val: this.state.Num
-      }
+//     this.state = {
+         
+//     }
+    //   this.radioChange = this.radioChange.bind(this);
+    //   this.handleSubmit = this.handleSubmit.bind(this);
+// }
+
+
+    state = {
+    Genre: "GK",
+    radio: ''
     }
+
+    globalvar = {
+        Val: this.state.Num
+    }
+    
 
     // componentDidMount(){
     //     console.log(this.globalvar)
@@ -28,6 +36,12 @@ export class QuizStart extends Component {
         console.log(this.state)
         console.log(this.globalvar)
     }
+
+    HandleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
     
     
     render() {
@@ -35,14 +49,14 @@ export class QuizStart extends Component {
         <div>
             <label>Please select level of difficulty</label><br/>
             <div>
-            <input type="radio" id="huey" name="Easy" value="huey"checked />
+            <input type="radio" id="huey" name="radio" onChange={this.HandleChange} value="Easy" checked={this.state.radio === "Easy"} />
              <label for="huey">Easy</label>
             </div>
             <div>
-            <input type="radio" id="huey" name="Medium" value="huey" />
+            <input type="radio" id="huey" name="radio" onChange={this.HandleChange} value="Medium" checked={this.state.radio === "Medium"} />
              <label for="huey">Medium</label>
             </div>            <div>
-            <input type="radio" id="huey" name="Difficult" value="huey" />
+            <input type="radio" id="huey" name="radio" onChange={this.HandleChange} value="Difficult" checked={this.state.radio === "Difficult"} />
              <label for="huey">Difficult</label>
             </div>
             <select name="Genre" value={this.state.Genre} onChange={e => this.setState({[e.target.name]: e.target.value}) } id="cars">
