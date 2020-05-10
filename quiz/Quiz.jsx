@@ -45,7 +45,7 @@ function Quiz(props) {
     useEffect(() => {
         console.log(props.location.state)
         console.log('hi')
-    }, [])
+    }, [props])
 
     const AnswerKey = [1, 1, 3, 2]
 
