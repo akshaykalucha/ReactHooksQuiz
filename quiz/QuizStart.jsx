@@ -18,7 +18,7 @@ export class QuizStart extends Component {
 
     state = {
     Genre: "GK",
-    radio: ''
+    radio: 'Easy'
     }
 
     globalvar = {
@@ -49,7 +49,7 @@ export class QuizStart extends Component {
         <div>
             <label>Please select level of difficulty</label><br/>
             <div>
-            <input type="radio" id="huey" name="radio" onChange={this.HandleChange} value="Easy" checked={this.state.radio === "Easy"} />
+            <input type="radio" id="huey" name="radio" onChange={this.HandleChange} value="Easy" />
              <label for="huey">Easy</label>
             </div>
             <div>
