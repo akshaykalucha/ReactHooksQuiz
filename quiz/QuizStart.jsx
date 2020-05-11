@@ -21,7 +21,7 @@ export class QuizStart extends Component {
     level: 'Easy',
     quizCreated: false,
     redirect: false,
-    quizDic: []
+    quizDic: null
     }
 
     globalvar = {
@@ -36,8 +36,16 @@ export class QuizStart extends Component {
 
     HandleChange = (event) => {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
         })
+    }
+
+
+    setStateQuiz = (array) => {
+        this.setState({
+            quizDic: array
+        })
+        console.log(this.state, 'this is final state')
     }
 
     //CORE DATA STRUCTURE REPLICATION API CALL AND SETTING STATE
@@ -109,7 +117,9 @@ export class QuizStart extends Component {
         // for(z=0; z<result.length; z++){
         //     console.log(result[z], `this result is at ${z} index`)
         // }
-        // setTimeout(() => this.setState({ redirect: true }), 8000);
+        setTimeout(() => this.setState({ redirect: true }), 2000);
+
+        this.setStateQuiz(QuesArray)
     }
     
     
@@ -118,7 +128,7 @@ export class QuizStart extends Component {
         if(this.state.redirect){
             history.push({
                 pathname: '/quiz',
-                state: this.state
+                state: this.state.quizDic
               })
         }
         return (

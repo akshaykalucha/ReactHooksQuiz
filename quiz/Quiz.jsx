@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 
 function Quiz(props) {
 
+    //    const [Questions, setQuestios] = useState()
     const [Questions, setQuestios] = useState([
         {
             Question: "What is capital of india",
@@ -44,9 +45,10 @@ function Quiz(props) {
     // const [inilitialisingQuiz, isInitialised] = useState()
 
     useEffect(() => {
-        console.log(props.location.state)
+        console.log(props.location.state, 'recieved state')
+        // setQuestios(props.location.state)
         console.log('hi')
-    }, [props])
+    }, [])
 
     const AnswerKey = [1, 1, 3, 2]
 
@@ -122,7 +124,7 @@ function Quiz(props) {
 
 
 
-    if(Allanswered === false){
+    if(Allanswered === false && Questions){
         return(
             Questions.map((Question, index) => Question.isAnswered === false && Question.isNext === true ? <div key={Math.random() *10}>
             <div key={Math.random() *10}>{Question.Question}
@@ -132,7 +134,7 @@ function Quiz(props) {
             )}
             </div>
             </div>
-        </div> : <div ></div>
+        </div> : null
         )
         )
     } else{
