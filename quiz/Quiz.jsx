@@ -41,7 +41,7 @@ function Quiz(props) {
     const [Allanswered, setAllAnswered] = useState(false)
     const [result, setResult] = useState(0)
     const [userans, setuserns] = useState([])
-    const [inilitialisingQuiz, isInitialised] = useState()
+    // const [inilitialisingQuiz, isInitialised] = useState()
 
     useEffect(() => {
         console.log(props.location.state)

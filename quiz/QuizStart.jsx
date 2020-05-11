@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {  Redirect } from 'react-router-dom'
+// import {  Redirect } from 'react-router-dom'
 
 
 
@@ -99,6 +99,7 @@ export class QuizStart extends Component {
         for(t=0; t<QuesArray.length; t++){
             // console.log(QuesArray[t], `this question is at ${t} index`)
             QuesArray[t]["Options"] = result[t]
+            QuesArray[t]["key"] = t+1
             // console.log(result[t], `this result is at ${t} index`)
         }
         console.log(QuesArray)
