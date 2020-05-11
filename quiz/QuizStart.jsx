@@ -51,6 +51,7 @@ export class QuizStart extends Component {
         var QuesArray = []
         var QuestionArray = ["What is capital of india", "Who is prime minister", "What is our national bird", "Who is iron man of india"]
         var AnswerArray = [["New delhi", "Mumbai", "Kolkata"], ["Modi", "Gandhi", "Nehru"], ["Pegion", "Parrot", "Peacock"], ["Bose", "Sardar patel", "Gandhi"]]
+        var Answers = [1,1,3,2]
         let i
         for(i=0; i<QuestionArray.length; i++){
             // for(let j = 0; i<AnswerArray.length; j++){
@@ -100,6 +101,7 @@ export class QuizStart extends Component {
             // console.log(QuesArray[t], `this question is at ${t} index`)
             QuesArray[t]["Options"] = result[t]
             QuesArray[t]["key"] = t+1
+            QuesArray[t]["Akey"] = Answers[t]
             // console.log(result[t], `this result is at ${t} index`)
         }
         console.log(QuesArray)
