@@ -33,12 +33,6 @@ export class QuizStart extends Component {
         console.log(this.props)
     }
 
-    componentDidUpdate(){
-        this.globalvar.Val = this.state.Num
-        console.log("--------------")
-        console.log(this.state)
-        // console.log(this.globalvar)
-    }
 
     HandleChange = (event) => {
         this.setState({
@@ -50,36 +44,33 @@ export class QuizStart extends Component {
         this.setState({
             quizCreated: true
         })
-        var Question = this.state.quizDic
+        // var Question = this.state.quizDic
         var Questionlist = {}
+        var QuesArray = []
         var QuestionArray = ["What is capital of india", "Who is prime minister", "What is our national bird", "Who is iron man of india"]
         var AnswerArray = [["New delhi", "Mumbai", "Kolkata"], ["Modi", "Gandhi", "Nehru"], ["Pegion", "Parrot", "Peacock"], ["Bose", "Sardar patel", "Gandhi"]]
         let i
         for(i=0; i<QuestionArray.length; i++){
-            var Question = QuestionArray[i]
-            Object.assign(Questionlist, {Question: Question})
+            // for(let j = 0; i<AnswerArray.length; j++){
+            console.log(QuestionArray[i])
+            let k = {
+                Question: QuestionArray[i],
+                Options: AnswerArray[i]
+            }
+            Questionlist = k
+                // Questionlist["Options"] = AnswerArray[i]
+            QuesArray.push(Questionlist)
+            // }
+            
         }
-        for(i=0; i<AnswerArray.length; i++){
-            var answerobj = AnswerArray[i]
-            let answerObj = {}
-            const obj = answerobj.map((list, index) => {
-                Object.assign(answerObj, {op: index+1, list, b: index+1})
-                var optionlist = []
-                console.log(answerObj)
-                
-                optionlist.push(answerObj)
-            })
-
-        }
-        setTimeout(() => this.setState({ redirect: true }), 8000);
-
+        console.log(QuesArray)
+        // setTimeout(() => this.setState({ redirect: true }), 8000);
     }
     
     
     render() {
         const { history } = this.props;
         if(this.state.redirect){
-            // return <Redirect to={{ pathname:'/quiz', state: this.state }}/>;
             history.push({
                 pathname: '/quiz',
                 state: this.state
