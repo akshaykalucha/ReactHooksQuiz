@@ -28,9 +28,9 @@ export class QuizStart extends Component {
     }
     
 
-    // componentDidMount(){
-    //     console.log(this.globalvar)
-    // }
+    componentDidMount(){
+        console.log(this.props)
+    }
 
     componentDidUpdate(){
         this.globalvar.Val = this.state.Num
@@ -49,14 +49,19 @@ export class QuizStart extends Component {
         this.setState({
             quizCreated: true
         })
-        setTimeout(() => this.setState({ redirect: true }), 8000);
+        setTimeout(() => this.setState({ redirect: true }), 200);
 
     }
     
     
     render() {
+        const { history } = this.props;
         if(this.state.redirect){
-            return <Redirect to={{ pathname:'/quiz', state: this.state }}/>;
+            // return <Redirect to={{ pathname:'/quiz', state: this.state }}/>;
+            history.push({
+                pathname: '/quiz',
+                state: this.state
+              })
         }
         return (
         <div>
