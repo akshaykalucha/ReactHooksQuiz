@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import {  Redirect } from 'react-router-dom'
 
 
 
@@ -18,11 +18,13 @@ export class QuizStart extends Component {
 
     state = {
     Genre: "GK",
-    radio: 'Easy'
+    level: 'Easy',
+    quizCreated: false,
+    redirect: false
     }
 
     globalvar = {
-        Val: this.state.Num
+        Genre: this.state.Genre
     }
     
 
@@ -34,7 +36,7 @@ export class QuizStart extends Component {
         this.globalvar.Val = this.state.Num
         console.log("--------------")
         console.log(this.state)
-        console.log(this.globalvar)
+        // console.log(this.globalvar)
     }
 
     HandleChange = (event) => {
@@ -42,22 +44,33 @@ export class QuizStart extends Component {
             [event.target.name]: event.target.value
         })
     }
+
+    crateQiuz = e => {
+        this.setState({
+            quizCreated: true
+        })
+        setTimeout(() => this.setState({ redirect: true }), 8000);
+
+    }
     
     
     render() {
+        if(this.state.redirect){
+            return <Redirect to={{ pathname:'/quiz', state: this.state }}/>;
+        }
         return (
         <div>
             <label>Please select level of difficulty</label><br/>
             <div>
-            <input type="radio" id="huey" name="radio" onChange={this.HandleChange} value="Easy" />
-             <label for="huey">Easy</label>
+            <input type="radio" id="huey" name="level" onChange={this.HandleChange} value="Easy" defaultChecked={ true } />
+             <label>Easy</label>
             </div>
             <div>
-            <input type="radio" id="huey" name="radio" onChange={this.HandleChange} value="Medium" checked={this.state.radio === "Medium"} />
-             <label for="huey">Medium</label>
+            <input type="radio" id="huey" name="level" onChange={this.HandleChange} value="Medium" checked={this.state.level === "Medium"} />
+             <label>Medium</label>
             </div>            <div>
-            <input type="radio" id="huey" name="radio" onChange={this.HandleChange} value="Difficult" checked={this.state.radio === "Difficult"} />
-             <label for="huey">Difficult</label>
+            <input type="radio" id="huey" name="level" onChange={this.HandleChange} value="Difficult" checked={this.state.level === "Difficult"} />
+             <label>Difficult</label>
             </div>
             <select name="Genre" value={this.state.Genre} onChange={e => this.setState({[e.target.name]: e.target.value}) } id="cars">
                 <option value="GK">GK</option>
@@ -65,9 +78,14 @@ export class QuizStart extends Component {
                 <option value="History">History</option>
                 <option value="Civics">Civics</option>
             </select>
-            <button className="otpbutton">
-                <Link to={{ pathname: "/quiz", state: this.state }}>Create Quiz</Link>
-            </button>    
+            {this.state.quizCreated ?
+                <h2>loading...</h2>
+                :
+                <button onClick={this.crateQiuz} className="otpbutton">
+                    Create Quiz
+                    {/* <Link to={{ pathname: "/quiz", state: this.state }}>Create Quiz</Link> */}
+                </button>
+            }    
         </div>
         )
     }
