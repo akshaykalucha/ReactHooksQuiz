@@ -20,7 +20,8 @@ export class QuizStart extends Component {
     Genre: "GK",
     level: 'Easy',
     quizCreated: false,
-    redirect: false
+    redirect: false,
+    quizDic: []
     }
 
     globalvar = {
@@ -49,7 +50,28 @@ export class QuizStart extends Component {
         this.setState({
             quizCreated: true
         })
-        setTimeout(() => this.setState({ redirect: true }), 200);
+        var Question = this.state.quizDic
+        var Questionlist = {}
+        var QuestionArray = ["What is capital of india", "Who is prime minister", "What is our national bird", "Who is iron man of india"]
+        var AnswerArray = [["New delhi", "Mumbai", "Kolkata"], ["Modi", "Gandhi", "Nehru"], ["Pegion", "Parrot", "Peacock"], ["Bose", "Sardar patel", "Gandhi"]]
+        let i
+        for(i=0; i<QuestionArray.length; i++){
+            var Question = QuestionArray[i]
+            Object.assign(Questionlist, {Question: Question})
+        }
+        for(i=0; i<AnswerArray.length; i++){
+            var answerobj = AnswerArray[i]
+            let answerObj = {}
+            const obj = answerobj.map((list, index) => {
+                Object.assign(answerObj, {op: index+1, list, b: index+1})
+                var optionlist = []
+                console.log(answerObj)
+                
+                optionlist.push(answerObj)
+            })
+
+        }
+        setTimeout(() => this.setState({ redirect: true }), 8000);
 
     }
     
