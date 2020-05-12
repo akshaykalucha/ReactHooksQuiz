@@ -102,7 +102,9 @@ export class QuizStart extends Component {
         
             return tempArray;
         }
-        var result = chunkArray(option, 3);
+
+        console.log(option.length/QuestionArray.length, 'Divided')
+        var result = chunkArray(option, option.length/QuestionArray.length);
         // console.log(result)
         let t
         for(t=0; t<QuesArray.length; t++){
