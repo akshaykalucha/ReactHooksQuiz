@@ -3,52 +3,63 @@ import React, { useState, useEffect } from 'react'
 
 function Quiz(props) {
 
-    //    const [Questions, setQuestios] = useState()
-    const [Questions, setQuestios] = useState([
-        {
-            Question: "What is capital of india",
-            Options: [ { op1: "New delhi", b:1 }, { op2: "Mumbai", b:2}, { op3: "Kolkata", b:3}],
-            Akey: 1,
-            key: 1,
-            isAnswered: false,
-            isNext: true
-        },
-        {
-            Question: "Who is prime minister",
-            Options: [ { op1: "Modi", b:1},  { op2: "Gandhi", b:2},  { op3: "Nehru", b:3}],
-            Akey: 1,
-            key: 2,
-            isAnswered: false,
-            isNext: false
-        },
-        {
-            Question: "What is our national bird",
-            Options: [ { op1: "Pegion", b:1}, { op2: "Parrot", b:2}, {  op3: "Peacock", b:3}],
-            Akey: 3,
-            key: 3,
-            isAnswered: false,
-            isNext: false
-        },
-        {
-            Question: "Who is iron man of india",
-            Options: [ { op1: "Bose", b:1}, { op2: "Sardar patel", b:2}, { op3: "Gandhi", b:3}],
-            Akey: 2,
-            key: 4,
-            isAnswered: false,
-            isNext: false
-        },
-    ])
+    const [Questions, setQuestios] = useState()
+    // const [Questions, setQuestios] = useState([
+    //     {
+    //         Question: "What is capital of india",
+    //         Options: [ { op1: "New delhi", b:1 }, { op2: "Mumbai", b:2}, { op3: "Kolkata", b:3}],
+    //         Akey: 1,
+    //         key: 1,
+    //         isAnswered: false,
+    //         isNext: true
+    //     },
+    //     {
+    //         Question: "Who is prime minister",
+    //         Options: [ { op1: "Modi", b:1},  { op2: "Gandhi", b:2},  { op3: "Nehru", b:3}],
+    //         Akey: 1,
+    //         key: 2,
+    //         isAnswered: false,
+    //         isNext: false
+    //     },
+    //     {
+    //         Question: "What is our national bird",
+    //         Options: [ { op1: "Pegion", b:1}, { op2: "Parrot", b:2}, {  op3: "Peacock", b:3}],
+    //         Akey: 3,
+    //         key: 3,
+    //         isAnswered: false,
+    //         isNext: false
+    //     },
+    //     {
+    //         Question: "Who is iron man of india",
+    //         Options: [ { op1: "Bose", b:1}, { op2: "Sardar patel", b:2}, { op3: "Gandhi", b:3}],
+    //         Akey: 2,
+    //         key: 4,
+    //         isAnswered: false,
+    //         isNext: false
+    //     },
+    // ])
 
     const [Allanswered, setAllAnswered] = useState(false)
     const [result, setResult] = useState(0)
     const [userans, setuserns] = useState([])
     // const [inilitialisingQuiz, isInitialised] = useState()
+    
+    const quesArray = props.location.state
+    for (let i = 0; i<quesArray.length; i++){
+        quesArray[i]["isAnswered"] = false
+        if(i===0){
+            quesArray[i]["isNext"] = true
+        }else{
+            quesArray[i]["isNext"] = false
+        }
+    }
 
     useEffect(() => {
-        console.log(props.location.state, 'recieved state')
-        // setQuestios(props.location.state)
+        // console.log(props.location.state, 'recieved state')
+        setQuestios(quesArray)
         console.log('hi')
-    }, [])
+    }, [quesArray])
+
 
     const AnswerKey = [1, 1, 3, 2]
 
