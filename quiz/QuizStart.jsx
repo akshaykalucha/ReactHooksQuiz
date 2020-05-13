@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import {  Redirect } from 'react-router-dom'
+import {  Redirect } from 'react-router-dom'
 
 
 
@@ -20,7 +20,7 @@ export class QuizStart extends Component {
     Genre: "GK",
     level: 'Easy',
     quizCreated: false,
-    redirect: false,
+    redirect: null,
     quizDic: null
     }
 
@@ -30,7 +30,7 @@ export class QuizStart extends Component {
     
 
     componentDidMount(){
-        console.log(this.props)
+        // console.log(this.props)
     }
 
 
@@ -45,7 +45,7 @@ export class QuizStart extends Component {
         this.setState({
             quizDic: array
         })
-        console.log(this.state, 'this is final state')
+        // console.log(this.state, 'this is final state')
     }
 
     //CORE DATA STRUCTURE REPLICATION API CALL AND SETTING STATE
@@ -114,7 +114,7 @@ export class QuizStart extends Component {
             QuesArray[t]["Akey"] = Answers[t]
             // console.log(result[t], `this result is at ${t} index`)
         }
-        console.log(QuesArray)
+        // console.log(QuesArray)
         // let z 
         // for(z=0; z<result.length; z++){
         //     console.log(result[z], `this result is at ${z} index`)
@@ -124,17 +124,26 @@ export class QuizStart extends Component {
         this.setStateQuiz(QuesArray)
     }
     
+    renderRedirect = () => {
+        if (this.state.redirect) {
+          return <Redirect to={{
+            pathname: '/quiz',
+            state: this.state.quizDic
+        }} />
+        }
+      }
     
     render() {
-        const { history } = this.props;
-        if(this.state.redirect){
-            history.push({
-                pathname: '/quiz',
-                state: this.state.quizDic
-              })
-        }
+        // const { history } = this.props;
+        // if(this.state.redirect){
+        //     history.push({
+        //         pathname: '/quiz',
+        //         state: this.state.quizDic
+        //       })
+        // }
         return (
         <div>
+            {this.renderRedirect()}
             <label>Please select level of difficulty</label><br/>
             <div>
             <input type="radio" id="huey" name="level" onChange={this.HandleChange} value="Easy" defaultChecked={ true } />
