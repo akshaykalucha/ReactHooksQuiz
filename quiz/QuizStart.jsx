@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {  Redirect } from 'react-router-dom'
+// import {  Redirect } from 'react-router-dom'
 
 
 
@@ -54,12 +54,39 @@ export class QuizStart extends Component {
         this.setState({
             quizCreated: true
         })
+        console.log(this.state)
         // var Question = this.state.quizDic
         var Questionlist = {}
         var QuesArray = []
-        var QuestionArray = ["What is capital of india", "Who is prime minister", "What is our national bird", "Who is iron man of india"]
-        var AnswerArray = [["New delhi", "Mumbai", "Kolkata"], ["Modi", "Gandhi", "Nehru"], ["Pegion", "Parrot", "Peacock"], ["Bose", "Sardar patel", "Gandhi"]]
+        var QuestionArray
+        var AnswerArray
+        var CivicsQuestionArray = ["What is capital of india", "Who is prime minister", "What is our national bird", "Who is iron man of india"]
+        var CivicsAnswerArray = [["New delhi", "Mumbai", "Kolkata"], ["Modi", "Gandhi", "Nehru"], ["Pegion", "Parrot", "Peacock"], ["Bose", "Sardar patel", "Gandhi"]]
+        var ScienceQuestionArray = ["What is capital of india", "Who is prime minister", "What is our national bird", "Who is iron man of india"]
+        var ScienceAnswerArray = [["New delhi", "Mumbai", "Kolkata"], ["Modi", "Gandhi", "Nehru"], ["Pegion", "Parrot", "Peacock"], ["Bose", "Sardar patel", "Gandhi"]]
+        var HistoryQuestionArray = ["What is capital of india", "Who is prime minister", "What is our national bird", "Who is iron man of india"]
+        var HistoryAnswerArray = [["New delhi", "Mumbai", "Kolkata"], ["Modi", "Gandhi", "Nehru"], ["Pegion", "Parrot", "Peacock"], ["Bose", "Sardar patel", "Gandhi"]]
+        var GKQuestionArray = ["What is capital of india", "Who is prime minister", "What is our national bird", "Who is iron man of india"]
+        var GKAnswerArray = [["New delhi", "Mumbai", "Kolkata"], ["Modi", "Gandhi", "Nehru"], ["Pegion", "Parrot", "Peacock"], ["Bose", "Sardar patel", "Gandhi"]]
         var Answers = [1,1,3,2]
+
+        if(this.state.Genre==="GK"){
+            QuestionArray = GKQuestionArray
+            AnswerArray = GKAnswerArray
+        }else if(this.state.Genre==="Science"){
+            QuestionArray = ScienceQuestionArray
+            AnswerArray = ScienceAnswerArray
+        }else if(this.state.Genre==="Civics"){
+            QuestionArray = CivicsQuestionArray
+            AnswerArray = CivicsAnswerArray
+        }else if(this.state.Genre==="History"){
+            QuestionArray = HistoryQuestionArray;
+            AnswerArray = HistoryAnswerArray;
+        }else{
+            QuestionArray = GKAnswerArray;
+            AnswerArray = GKAnswerArray
+        }
+
         let i
         for(i=0; i<QuestionArray.length; i++){
             // for(let j = 0; i<AnswerArray.length; j++){
@@ -124,14 +151,14 @@ export class QuizStart extends Component {
         this.setStateQuiz(QuesArray)
     }
     
-    renderRedirect = () => {
-        if (this.state.redirect) {
-          return <Redirect to={{
-            pathname: '/quiz',
-            state: this.state.quizDic
-        }} />
-        }
-      }
+    // renderRedirect = () => {
+    //     if (this.state.redirect) {
+    //       return <Redirect to={{
+    //         pathname: '/quiz',
+    //         state: this.state.quizDic
+    //     }} />
+    //     }
+    //   }
     
     render() {
         // const { history } = this.props;
@@ -143,7 +170,7 @@ export class QuizStart extends Component {
         // }
         return (
         <div>
-            {this.renderRedirect()}
+            {/* {this.renderRedirect()} */}
             <label>Please select level of difficulty</label><br/>
             <div>
             <input type="radio" id="huey" name="level" onChange={this.HandleChange} value="Easy" defaultChecked={ true } />
