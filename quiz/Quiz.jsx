@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 function Quiz(props) {
 
     const [Questions, setQuestios] = useState()
-    // const [Questions, setQuestios] = useState([
+    const [Questions, setQuestios] = useState([
     //     {
     //         Question: "What is capital of india",
     //         Options: [ { op1: "New delhi", b:1 }, { op2: "Mumbai", b:2}, { op3: "Kolkata", b:3}],
