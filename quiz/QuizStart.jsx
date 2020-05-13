@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import {  Redirect } from 'react-router-dom'
+import {  Redirect } from 'react-router-dom'
 
 
 
@@ -151,14 +151,14 @@ export class QuizStart extends Component {
         this.setStateQuiz(QuesArray)
     }
     
-    // renderRedirect = () => {
-    //     if (this.state.redirect) {
-    //       return <Redirect to={{
-    //         pathname: '/quiz',
-    //         state: this.state.quizDic
-    //     }} />
-    //     }
-    //   }
+    renderRedirect = () => {
+        if (this.state.redirect) {
+          return <Redirect to={{
+            pathname: '/quiz',
+            state: this.state.quizDic
+        }} />
+        }
+      }
     
     render() {
         // const { history } = this.props;
@@ -170,7 +170,7 @@ export class QuizStart extends Component {
         // }
         return (
         <div>
-            {/* {this.renderRedirect()} */}
+            {this.renderRedirect()}
             <label>Please select level of difficulty</label><br/>
             <div>
             <input type="radio" id="huey" name="level" onChange={this.HandleChange} value="Easy" defaultChecked={ true } />
