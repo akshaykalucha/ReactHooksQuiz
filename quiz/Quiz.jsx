@@ -1,6 +1,20 @@
 import React, { useState, useEffect } from 'react'
 // import styles from './Quiz.modules.css'
 
+
+
+let Nresult = 0
+
+function getResult(arr1, arr2) {
+        
+    for(let i = 0; i < arr1.length; i++){
+        if(arr1[i] ===  arr2[i]){
+            Nresult ++
+        }
+    }
+    return Nresult
+}
+
 function Quiz(props) {
 
     const [Questions, setQuestios] = useState()
@@ -41,10 +55,8 @@ function Quiz(props) {
 
     const [Allanswered, setAllAnswered] = useState(false)
     const [result, setResult] = useState(0)
-    // const [quizFinished, setQuizFinished] = useState(false)
     const [userans, setuserns] = useState([])
-    // const [inilitialisingQuiz, isInitialised] = useState()
-
+    const [checkResult, setCheckResult] = useState(false)
 
 
     useEffect(() => {
@@ -69,25 +81,26 @@ function Quiz(props) {
 
     const AnswerKey = [1, 1, 3, 2]
 
-    let Nresult = 0
 
 
-    function getResult(arr1, arr2) {
-        
-        for(let i = 0; i < arr1.length; i++){
-            if(arr1[i] ===  arr2[i]){
-                Nresult ++
-            }
-        }
-        setResult(Nresult)
-        return Nresult
+
+
+    // useEffect(() =>{
+    //     setCheckResult(true)
+    // }, [getResult])
+
+    if(Allanswered === true){
+        console.log('finished')
     }
 
+    const check = (e) => {
+        setResult(Nresult)
+        setCheckResult(true)
+    }
     
     const handlechange = (e, index) => {
 
         if (Questions.length === index+1){
-
             setAllAnswered(true)
             console.log(e.currentTarget.innerText)
             let newArr = [...Questions]
@@ -109,11 +122,10 @@ function Quiz(props) {
             let userlist = [...userans]
             userlist.push(parseInt(bkey))
             setuserns(userlist)
-            console.log(userlist, AnswerKey)
+            // console.log(userlist, AnswerKey)
             console.log(getResult(userlist, AnswerKey), 'your result is')
             return
         }
-
 
         let bkey
         let newArr = [...Questions]; // copying the old datas array
@@ -154,11 +166,26 @@ function Quiz(props) {
         </div> : null
         )
         )
-    } else{
+    }
+
+
+    if(Allanswered === true){
+        return (
+            <div>
+                <button onClick={ e => check(e)}>Get result</button>
+                {checkResult === true ?
+                    <div key={Math.random() *10}>
+                        <h1>Quiz Finished</h1>
+                        <h2>Your result is: {result}</h2>
+                    </div> : null
+                }
+            </div>
+        )
+    }
+    else{
         return(
-            <div key={Math.random() *10}>
-                <h1>Quiz Finished</h1>
-                <h2>Your result is: {result}</h2>
+            <div>
+            <h1>Loading....</h1>
             </div>
         )
     }
