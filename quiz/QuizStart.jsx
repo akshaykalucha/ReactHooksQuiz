@@ -153,6 +153,7 @@ export class QuizStart extends Component {
     
     renderRedirect = () => {
         if (this.state.redirect) {
+            console.log(this.state, 'this state is redirecting')
           return <Redirect to={{
             pathname: '/quiz',
             state: this.state.quizDic
@@ -183,19 +184,21 @@ export class QuizStart extends Component {
             <input type="radio" id="huey" name="level" onChange={this.HandleChange} value="Difficult" checked={this.state.level === "Difficult"} />
              <label>Difficult</label>
             </div>
-            <select name="Genre" value={this.state.Genre} onChange={e => this.setState({[e.target.name]: e.target.value}) } id="cars">
-                <option value="GK">GK</option>
-                <option value="Science">Science</option>
-                <option value="History">History</option>
-                <option value="Civics">Civics</option>
-            </select>
             {this.state.quizCreated ?
                 <h2>loading...</h2>
                 :
-                <button onClick={this.crateQiuz} className="otpbutton">
-                    Create Quiz
-                    {/* <Link to={{ pathname: "/quiz", state: this.state }}>Create Quiz</Link> */}
-                </button>
+                <div>
+                    <select name="Genre" value={this.state.Genre} onChange={e => this.setState({[e.target.name]: e.target.value}) } id="cars">
+                        <option value="GK">GK</option>
+                        <option value="Science">Science</option>
+                        <option value="History">History</option>
+                        <option value="Civics">Civics</option>
+                    </select>
+                    <button onClick={this.crateQiuz} className="otpbutton">
+                        Create Quiz
+                        {/* <Link to={{ pathname: "/quiz", state: this.state }}>Create Quiz</Link> */}
+                    </button>
+                </div>
             }    
         </div>
         )

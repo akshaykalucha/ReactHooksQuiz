@@ -41,25 +41,30 @@ function Quiz(props) {
 
     const [Allanswered, setAllAnswered] = useState(false)
     const [result, setResult] = useState(0)
+    // const [quizFinished, setQuizFinished] = useState(false)
     const [userans, setuserns] = useState([])
     // const [inilitialisingQuiz, isInitialised] = useState()
-    
-    const quesArray = props.location.state
-    for (let i = 0; i<quesArray.length; i++){
-        quesArray[i]["isAnswered"] = false
-        if(i===0){
-            quesArray[i]["isNext"] = true
-        }else{
-            quesArray[i]["isNext"] = false
-        }
-    }
+
+
 
     useEffect(() => {
-        // console.log(props.location.state, 'recieved state')
-        setQuestios(quesArray)
-        console.log(quesArray.length)
-        console.log('hi')
-    }, [quesArray])
+        const quesArray = props.location.state
+        function callLoop(){
+            for (let i = 0; i<quesArray.length; i++){
+                quesArray[i]["isAnswered"] = false
+                if(i===0){
+                    quesArray[i]["isNext"] = true
+                }else{
+                    quesArray[i]["isNext"] = false
+                }
+            }
+        }
+        function pakka(){
+            setQuestios(quesArray)
+        }
+        callLoop()
+        pakka()
+    }, [props])
 
 
     const AnswerKey = [1, 1, 3, 2]
