@@ -11,7 +11,7 @@ const reducer = (state=initialState, action) => {
             return {
                 ...state,
                 sayHi: "true",
-                myPrice: action.param
+                myPrice: state.myPrice +  action.param
             }
         default:
             return state
