@@ -55,7 +55,7 @@ export class QuizStart extends Component {
             quizCreated: true
         })
         console.log(this.state)
-        // var Question = this.state.quizDic
+        var Question = this.state.quizDic
         var Questionlist = {}
         var QuesArray = []
         var QuestionArray
