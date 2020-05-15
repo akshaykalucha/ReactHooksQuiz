@@ -151,15 +151,15 @@ export class QuizStart extends Component {
         this.setStateQuiz(QuesArray)
     }
     
-    renderRedirect = () => {
-        if (this.state.redirect) {
-            console.log(this.state, 'this state is redirecting')
-          return <Redirect to={{
-            pathname: '/quiz',
-            state: this.state.quizDic
-        }} />
-        }
-      }
+    // renderRedirect = () => {
+    //     if (this.state.redirect) {
+    //         console.log(this.state, 'this state is redirecting')
+    //       return <Redirect to={{
+    //         pathname: '/quiz',
+    //         state: this.state.quizDic
+    //     }} />
+    //     }
+    //   }
     
     render() {
         // const { history } = this.props;
