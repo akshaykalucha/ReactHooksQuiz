@@ -162,13 +162,13 @@ export class QuizStart extends Component {
       }
     
     render() {
-        // const { history } = this.props;
-        // if(this.state.redirect){
-        //     history.push({
-        //         pathname: '/quiz',
-        //         state: this.state.quizDic
-        //       })
-        // }
+        const { history } = this.props;
+        if(this.state.redirect){
+            history.push({
+                pathname: '/quiz',
+                state: this.state.quizDic
+              })
+        }
         return (
         <div>
             {this.renderRedirect()}
