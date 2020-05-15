@@ -29,9 +29,9 @@ export class QuizStart extends Component {
     }
     
 
-    // componentDidMount(){
-    //     // console.log(this.props)
-    // }
+    componentDidMount(){
+        // console.log(this.props)
+    }
 
 
     HandleChange = (event) => {
