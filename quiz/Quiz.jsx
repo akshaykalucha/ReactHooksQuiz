@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import styles from './Quiz.modules.css'
+import styles from './Quiz.modules.css'
 
 
 
