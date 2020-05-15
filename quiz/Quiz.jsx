@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 // import styles from './Quiz.modules.css'
+import { connect } from 'react-redux'
+import * as actionTypes from '../quiz/Store/actions'
 
 
 
@@ -96,6 +98,7 @@ function Quiz(props) {
     const check = (e) => {
         setResult(Nresult)
         setCheckResult(true)
+        props.onSayHi(Nresult)
     }
     
     const handlechange = (e, index) => {
@@ -191,4 +194,17 @@ function Quiz(props) {
     }
 }
 
-export default Quiz
+const mapStateToProps = state => {
+    return {
+        hi: state.sayHi,
+        price: state.myPrice
+    }
+}
+
+const mapDispatchtoProps = dispatch => {
+    return {
+        onSayHi: (param) => dispatch({type: actionTypes.SHOW_ALERT, param})
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchtoProps)(Quiz)
