@@ -76,8 +76,8 @@ function Quiz(props) {
         function pakka(){
             setQuestios(quesArray)
         }
-        callLoop()
-        pakka()
+        // callLoop()
+        // pakka()
     }, [props])
 
 
