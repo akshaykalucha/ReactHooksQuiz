@@ -146,12 +146,12 @@ function Quiz(props) {
             return bkey
         }))
 
-        // newArr[index+1].isNext = true
-        // let userlist = [...userans]
-        // userlist.push(parseInt(bkey))
-        // setuserns(userlist)
-        // console.log(userlist)
-        // setQuestios(newArr);
+        newArr[index+1].isNext = true
+        let userlist = [...userans]
+        userlist.push(parseInt(bkey))
+        setuserns(userlist)
+        console.log(userlist)
+        setQuestios(newArr);
     }
 
 
