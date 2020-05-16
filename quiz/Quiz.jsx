@@ -112,7 +112,17 @@ function Quiz(props) {
             setQuestios(newArr);
             let optiontext = e.currentTarget.innerText
             let bkey
-
+            Questions.map(Question => Question.Options.map(function(option){
+                if(option.op1===optiontext){
+                    bkey = option.b
+                }else if(option.op2 === optiontext){
+                    bkey = option.b
+                }else if(option.op3 === optiontext){
+                    bkey = option.b
+                }
+                return bkey
+            }))
+            let userlist = [...userans]
             userlist.push(parseInt(bkey))
             setuserns(userlist)
             // console.log(userlist, AnswerKey)
