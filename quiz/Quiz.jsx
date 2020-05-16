@@ -123,7 +123,8 @@ function Quiz(props) {
                 return bkey
             }))
             let userlist = [...userans]
-
+            userlist.push(parseInt(bkey))
+            setuserns(userlist)
             // console.log(userlist, AnswerKey)
             console.log(getResult(userlist, AnswerKey), 'your result is')
             return
