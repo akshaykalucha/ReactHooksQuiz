@@ -17,9 +17,6 @@ function getResult(arr1, arr2) {
     return Nresult
 }
 
-function Quiz(props) {
-
-    const [Questions, setQuestios] = useState()
     // const [Questions, setQuestios] = useState([
     //     {
     //         Question: "What is capital of india",
