@@ -101,10 +101,10 @@ function Quiz(props) {
         props.onSayHi(Nresult)
     }
     
-    // const handlechange = (e, index) => {
+    const handlechange = (e, index) => {
 
-    //     if (Questions.length === index+1){
-    //         setAllAnswered(true)
+        if (Questions.length === index+1){
+            setAllAnswered(true)
             console.log(e.currentTarget.innerText)
             let newArr = [...Questions]
             newArr[index].isAnswered = true; // replace e.target.value with whatever you want to change it to
