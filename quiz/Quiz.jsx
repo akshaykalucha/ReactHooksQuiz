@@ -5,7 +5,6 @@ import * as actionTypes from '../quiz/Store/actions'
 
 
 
-let Nresult = 0
 
 function getResult(arr1, arr2) {
         
