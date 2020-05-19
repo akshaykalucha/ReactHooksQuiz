@@ -178,10 +178,10 @@ function Quiz(props) {
             <div>
                 <button onClick={ e => check(e)}>Get result</button>
                 {checkResult === true ?
-                    // <div key={Math.random() *10}>
-                    //     <h1>Quiz Finished</h1>
-                    //     <h2>Your result is: {result}</h2>
-                    // </div> : null
+                    <div key={Math.random() *10}>
+                        <h1>Quiz Finished</h1>
+                        <h2>Your result is: {result}</h2>
+                    </div> : null
                 }
             </div>
         )
