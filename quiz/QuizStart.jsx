@@ -177,6 +177,7 @@ class QuizStart extends Component {
         // }
         return (
         <div>
+            {this.props.levelReducer}<br/>
             {this.renderRedirect()}
             <label>Please select level of difficulty</label><br/>
             <div>
