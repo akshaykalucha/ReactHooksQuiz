@@ -88,9 +88,9 @@ function Quiz(props) {
 
 
 
-    useEffect(() =>{
-        setCheckResult(true)
-    }, [getResult])
+    // useEffect(() =>{
+    //     setCheckResult(true)
+    // }, [getResult])
 
     if(Allanswered === true){
         console.log('finished')
