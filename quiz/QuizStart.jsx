@@ -48,11 +48,11 @@ class QuizStart extends Component {
 
 
     setStateQuiz = (array) => {
-        this.setState({
-            quizDic: array
-        })
-        // console.log(this.state, 'this is final state')
-    }
+    //     this.setState({
+    //         quizDic: array
+    //     })
+    //     // console.log(this.state, 'this is final state')
+    // }
 
     //CORE DATA STRUCTURE REPLICATION API CALL AND SETTING STATE
 
