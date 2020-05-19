@@ -195,12 +195,12 @@ function Quiz(props) {
     }
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         hi: state.sayHi,
-//         price: state.myPrice
-//     }
-// }
+const mapStateToProps = state => {
+    return {
+        hi: state.sayHi,
+        price: state.myPrice
+    }
+}
 
 const mapDispatchToProps = dispatch => {
     return {
