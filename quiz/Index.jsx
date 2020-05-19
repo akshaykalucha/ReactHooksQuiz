@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { QuizStart } from './QuizStart'
+import QuizStart from './QuizStart'
 import Quiz from './Quiz'
 
 

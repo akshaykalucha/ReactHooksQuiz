@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import {  Redirect } from 'react-router-dom'
+import {connect} from "react-redux";
+import * as actionTypes from '../quiz/Store/actions'
 
-
-
-export class QuizStart extends Component {
+class QuizStart extends Component {
     
 // constructor(props) {
 //     super(props)
@@ -21,7 +21,8 @@ export class QuizStart extends Component {
     level: 'Easy',
     quizCreated: false,
     redirect: null,
-    quizDic: null
+    quizDic: null,
+    hi: this.props.levelReducer
     }
 
     globalvar = {
@@ -36,8 +37,13 @@ export class QuizStart extends Component {
 
     HandleChange = (event) => {
         this.setState({
+            hi: this.props.levelReducer
+        })
+        this.setState({
             [event.target.name]: event.target.value,
         })
+        this.props.changeQuiz(event.target.value)
+        console.log(this.props.levelReducer, 'from')
     }
 
 
@@ -205,4 +211,18 @@ export class QuizStart extends Component {
     }
 }
 
-export default QuizStart
+
+function mapStateToProps(state){
+    return {
+        genreReducer: state.Genre,
+        levelReducer: state.level
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        changeQuiz: (value) => dispatch({type: actionTypes.CREATE_QUIZ, param: value})
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuizStart)

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 // import styles from './Quiz.modules.css'
 import { connect } from 'react-redux'
 import * as actionTypes from '../quiz/Store/actions'
+// import QuizStart from './QuizStart'
 
 
 
@@ -201,10 +202,10 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchtoProps = dispatch => {
+const mapDispatchToProps = dispatch => {
     return {
-        onSayHi: (param) => dispatch({type: actionTypes.SHOW_ALERT, param})
+        onSayHi: (param, param2) => dispatch({type: actionTypes.SHOW_ALERT, params: [param, param2]})
     }
 }
 
-export default connect(mapStateToProps, mapDispatchtoProps)(Quiz)
+export default connect(mapStateToProps, mapDispatchToProps)(Quiz)
