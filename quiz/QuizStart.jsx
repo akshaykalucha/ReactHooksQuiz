@@ -22,7 +22,7 @@ class QuizStart extends Component {
     quizCreated: false,
     redirect: null,
     quizDic: null,
-    hi: this.props.levelReducer,
+    hi: this.props.levelReducer
     }
 
     globalvar = {
