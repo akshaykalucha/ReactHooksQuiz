@@ -141,6 +141,8 @@ function Quiz(props) {
             }else if(option.op3 === optiontext){
                 bkey = option.b
             }
+            redirect: null,
+            quizDic: null,
             return bkey
         }))
 
