@@ -30,8 +30,7 @@ class QuizStart extends Component {
 
     globalvar = {
         Genre: this.state.Genre,
-        redirect: null,
-        quizDic: null,
+        
     }
     
 
