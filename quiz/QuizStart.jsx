@@ -22,11 +22,16 @@ class QuizStart extends Component {
     quizCreated: false,
     redirect: null,
     quizDic: null,
-    hi: this.props.levelReducer
+    hi: this.props.levelReducer,
+    globalvar = {
+        Genre: this.state.Genre
+    }
     }
 
     globalvar = {
-        Genre: this.state.Genre
+        Genre: this.state.Genre,
+        redirect: null,
+        quizDic: null,
     }
     
 
