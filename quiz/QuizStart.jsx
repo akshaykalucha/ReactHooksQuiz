@@ -23,14 +23,13 @@ class QuizStart extends Component {
     redirect: null,
     quizDic: null,
     hi: this.props.levelReducer,
-    globalvar = {
+        globalvar = {
         Genre: this.state.Genre
     }
     }
 
     globalvar = {
-        Genre: this.state.Genre,
-        
+        Genre: this.state.Genre
     }
     
 
