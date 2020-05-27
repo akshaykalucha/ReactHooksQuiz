@@ -16,6 +16,17 @@ function getResult(arr1, arr2) {
         }
     }
     return Nresult
+    const quesArray = props.location.state
+    function callLoop(){
+        for (let i = 0; i<quesArray.length; i++){
+            quesArray[i]["isAnswered"] = false
+            if(i===0){
+                quesArray[i]["isNext"] = true
+            }else{
+                quesArray[i]["isNext"] = false
+            }
+        }
+    }
 }
 
 function Quiz(props) {
@@ -63,17 +74,7 @@ function Quiz(props) {
 
 
     useEffect(() => {
-        const quesArray = props.location.state
-        function callLoop(){
-            for (let i = 0; i<quesArray.length; i++){
-                quesArray[i]["isAnswered"] = false
-                if(i===0){
-                    quesArray[i]["isNext"] = true
-                }else{
-                    quesArray[i]["isNext"] = false
-                }
-            }
-        }
+
         function pakka(){
             setQuestios(quesArray)
         }
