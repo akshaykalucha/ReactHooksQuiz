@@ -8,7 +8,15 @@ import * as actionTypes from '../quiz/Store/actions'
 
 let Nresult = 0
 
-
+function getResult(arr1, arr2) {
+        
+    for(let i = 0; i < arr1.length; i++){
+        if(arr1[i] ===  arr2[i]){
+            Nresult ++
+        }
+    }
+    return Nresult
+}
 
 function Quiz(props) {
 
