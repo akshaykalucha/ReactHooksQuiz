@@ -16,7 +16,13 @@ class QuizStart extends Component {
 // }
 
 
-is.props.levelReducer
+    state = {
+    Genre: "GK",
+    level: 'Easy',
+    quizCreated: false,
+    redirect: null,
+    quizDic: null,
+    hi: this.props.levelReducer
     }
 
     globalvar = {
