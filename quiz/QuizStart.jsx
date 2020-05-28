@@ -39,11 +39,7 @@ class QuizStart extends Component {
         this.setState({
             hi: this.props.levelReducer
         })
-        this.setState({
-            [event.target.name]: event.target.value,
-        })
-        this.props.changeQuiz(event.target.value)
-        console.log(this.props.levelReducer, 'from')
+
     }
 
 
