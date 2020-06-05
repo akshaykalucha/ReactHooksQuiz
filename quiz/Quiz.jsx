@@ -137,7 +137,15 @@ function Quiz(props) {
         newArr[index].isNext = false;
         let optiontext = e.currentTarget.innerText
         Questions.map(Question => Question.Options.map(function(option){
-
+            if(option.op1===optiontext){
+                bkey = option.b
+            }else if(option.op2 === optiontext){
+                bkey = option.b
+            }else if(option.op3 === optiontext){
+                bkey = option.b
+            }
+            return bkey
+        }))
 
         newArr[index+1].isNext = true
         let userlist = [...userans]
