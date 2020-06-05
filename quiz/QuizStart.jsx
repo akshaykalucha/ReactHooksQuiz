@@ -94,9 +94,9 @@ class QuizStart extends Component {
         }
 
         let i
-        for(i=0; i<QuestionArray.length; i++){
-            // for(let j = 0; i<AnswerArray.length; j++){
-            // console.log(QuestionArray[i])
+        // for(i=0; i<QuestionArray.length; i++){
+            for(let j = 0; i<AnswerArray.length; j++){
+            console.log(QuestionArray[i])
             let k = {
                 Question: QuestionArray[i],
                 // Options: AnswerArray[i]
