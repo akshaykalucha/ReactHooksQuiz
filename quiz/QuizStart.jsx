@@ -213,7 +213,12 @@ class QuizStart extends Component {
 }
 
 
-
+function mapStateToProps(state){
+    return {
+        genreReducer: state.Genre,
+        levelReducer: state.level
+    }
+}
 
 const mapDispatchToProps = dispatch => {
     return {
