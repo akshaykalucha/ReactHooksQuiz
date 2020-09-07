@@ -5,15 +5,15 @@ import * as actionTypes from '../quiz/Store/actions'
 
 class QuizStart extends Component {
     
-constructor(props) {
-    super(props)
+// constructor(props) {
+//     super(props)
 
-    this.state = {
+//     this.state = {
          
-    }
-      this.radioChange = this.radioChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-}
+//     }
+//       this.radioChange = this.radioChange.bind(this);
+//       this.handleSubmit = this.handleSubmit.bind(this);
+// }
 
 
     state = {
