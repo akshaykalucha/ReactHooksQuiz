@@ -53,35 +53,3 @@ query findBookByName($titleToSearch: String!) {
     }
 }
 `
-
-export const ADD_AUTHOR = gql`
-mutation addAuthor($ssn: Int!, $name: String!, $birth: Int) {
-    addAuthor(
-        name: $name,
-        ssn: $ssn,
-        birth: $birth,
-    ) {
-        name
-        ssn
-        birth
-    }
-}
-`
-
-export const ADD_BOOK = gql`
-mutation addBook($title: String!, $isbn: Int!, $published: Int!, $author: String!, $genres: [String!]!) {
-    addBook(
-        title: $title,
-        isbn: $isbn,
-        author: $author,
-        published: $published,
-        genres: $genres
-    ) {
-        title
-        isbn
-        published
-        author
-        genres
-    }
-}
-`
