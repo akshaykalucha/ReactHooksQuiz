@@ -7,11 +7,7 @@ export function setNavigator(nav) {
   }
 }
 
-/**
- * Above functions are helpers to navigate to a route without the
- * navigation prop from React Navigation, helpful in sagas or action dispatchers
- * Just include check EmailAuth saga as an example
- */
+
 export function navigate(routeName, params) {
   if (config.navigator && routeName) {
     let action = NavigationActions.navigate({ routeName, params });
