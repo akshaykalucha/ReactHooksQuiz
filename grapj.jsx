@@ -8,10 +8,6 @@ import Link from "./components/link/Link";
 
 export { Graph, Node, Link };
 
-Chart.defaults.global.defaultFontFamily = "'PT Sans', sans-serif"
-Chart.defaults.global.legend.display = true;
-Chart.defaults.global.elements.line.tension = 0.4;
-
 export default class LineGraph extends Component {
     chartRef = React.createRef();
 
@@ -22,6 +18,11 @@ export default class LineGraph extends Component {
     componentDidUpdate() {
         this.buildChart();
     }
+
+
+    Chart.defaults.global.defaultFontFamily = "'PT Sans', sans-serif"
+    Chart.defaults.global.legend.display = true;
+    Chart.defaults.global.elements.line.tension = 0.4;
     
     buildChart = () =>  {
         const myChartRef = this.chartRef.current.getContext("2d");
