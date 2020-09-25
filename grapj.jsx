@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import Chart from "chart.js";
 import classes from "./LineGraph.module.css";
 let myLineChart;
+import Graph from "./components/graph/Graph";
+import Node from "./components/node/Node";
+import Link from "./components/link/Link";
+
+export { Graph, Node, Link };
 
 Chart.defaults.global.defaultFontFamily = "'PT Sans', sans-serif"
 Chart.defaults.global.legend.display = true;
