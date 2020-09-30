@@ -15,10 +15,10 @@ const client = new ApolloClient({
 })
 
 ReactDOM.render(
-  <ApolloProvider client={ client }>
-    <React.StrictMode>
+  <Provider store = {store}>
+    <Router>
       <App />
-    </React.StrictMode>
-  </ApolloProvider>,
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );
