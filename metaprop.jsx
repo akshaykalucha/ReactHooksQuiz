@@ -10,3 +10,12 @@ const Meta = ({ className, item }) => {
     )
   }
   
+  Meta.propTypes = {
+    className: PropTypes.string,
+    item: PropTypes.object,
+  }
+  
+  Meta.defaultProps = {
+    className: '',
+    item: {},
+  }
